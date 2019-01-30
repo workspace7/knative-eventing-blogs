@@ -1,0 +1,10 @@
+= Knative Eventing Blogs
+The repository to hold the sample code that will be referred in the Knative Eventing blog series.
+
+NOTE: Work in Progress
+
+== Running samples locally
+
+All the samples in this blog will be run using https://github.com/minishift/minishift[minishift], the single node https://www.okd.io/[OKD] cluster that can be used for development purposes. 
+
+To setup Knative components (serving, build etc.,) follow the instructions from https://github.com/knative/docs/blob/master/install/Knative-with-Minishift.md[here]

@@ -1,0 +1,28 @@
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: ContainerSource
+metadata:
+  name: kafkaconsumer
+spec:
+  # todo see if env could be loaded from config map
+  env:
+    - name: bootstrapServers
+      value: "192.168.64.32:9092"
+    - name: topic
+      value: "k_events_demo"
+    - name: ack
+      value: "1"
+    - name: keyDeserializer
+      value: "org.apache.kafka.common.serialization.StringDeserializer"
+    - name: valueDeserializer
+      value: "org.apache.kafka.common.serialization.StringDeserializer"
+    - name: groupId
+      value: "k_demo_group"
+    - name: autoOffsetReset
+      value: "earliest"
+  image: kameshsampath/kafka-consumer-source:0.0.1
+  sink:
+    apiVersion: eventing.knative.dev/v1alpha1
+    kind: Channel
+    name: blue
+  
+    
